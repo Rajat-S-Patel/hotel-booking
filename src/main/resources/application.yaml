@@ -1,0 +1,7 @@
+spring:
+  application:
+    name: hotelbooking
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
