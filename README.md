@@ -249,4 +249,12 @@ Things left out or simplified, and what would come next with more time:
 - **Concurrency edge case**: two first-time bookings with the same new email at the same moment can make one of
   them fail with a generic 409 while the customer record is being created.
 - **Storage**: in-memory H2, so all data is lost on restart.
+- **Encryption of personal data**: PII is stored as plain text today: customer and guest names, emails and phone
+  numbers, owner contact details and UPI IDs. The plan is an annotation-based approach: mark any entity field with
+  something like `@Encrypted`, and the field is encrypted just before it is saved and decrypted right after it is
+  loaded, so services and entities keep working with plain values. This can be built with a JPA
+  `AttributeConverter` (or a Hibernate listener) that picks up the annotation, using AES-GCM with keys from a key
+  store or KMS rather than from config. Fields that are looked up or kept unique (customer email, owner email)
+  would also need a hashed "blind index" column, because random encryption gives a different value each time and
+  can't be searched directly.
 - **Tests**: see the "Not covered" list in the Test section.

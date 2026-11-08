@@ -188,7 +188,7 @@
             "header": [],
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"name\": \"Rajat Hotels\",\n  \"kind\": \"INDIVIDUAL\",\n  \"contactEmail\": \"patelrajat2000@gmail.com\",\n  \"contactPhone\": \"01234567890\"\n}",
+              "raw": "{\n  \"name\": \"Rajat Hotels\",\n  \"kind\": \"INDIVIDUAL\",\n  \"contactEmail\": \"owner@example.com\",\n  \"contactPhone\": \"01234567890\"\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -214,7 +214,7 @@
                 "header": [],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\n  \"name\": \"Rajat Hotels\",\n  \"kind\": \"INDIVIDUAL\",\n  \"contactEmail\": \"patelrajat2000@gmail.com\",\n  \"contactPhone\": \"01234567890\"\n}",
+                  "raw": "{\n  \"name\": \"Rajat Hotels\",\n  \"kind\": \"INDIVIDUAL\",\n  \"contactEmail\": \"owner@example.com\",\n  \"contactPhone\": \"01234567890\"\n}",
                   "options": {
                     "raw": {
                       "language": "json"
@@ -242,7 +242,7 @@
               ],
               "cookie": [],
               "responseTime": null,
-              "body": "{\n  \"id\": \"01a1bb0c-aaf0-7588-bb54-5c8e23e20dab\",\n  \"name\": \"Rajat Hotels\",\n  \"kind\": \"INDIVIDUAL\",\n  \"contactEmail\": \"patelrajat2000@gmail.com\",\n  \"contactPhone\": \"01234567890\"\n}"
+              "body": "{\n  \"id\": \"01a1bb0c-aaf0-7588-bb54-5c8e23e20dab\",\n  \"name\": \"Rajat Hotels\",\n  \"kind\": \"INDIVIDUAL\",\n  \"contactEmail\": \"owner@example.com\",\n  \"contactPhone\": \"01234567890\"\n}"
             }
           ]
         },
