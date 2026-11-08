@@ -116,6 +116,48 @@ pricing (weekend surcharge), controller/HTTP error responses and an end-to-end A
 5. `POST /bookings/{reference}/cancellation` to cancel. The refund follows the cancellation policy and the rooms
    become available again.
 
+## Design decisions
+
+The full decision log, with the rejected alternatives, is in [docs/db-specs.md](docs/db-specs.md) (Section 12).
+The main ones:
+
+- **Package by feature.** `reference`, `property`, `policy`, `inventory`, `pricing`, `search`, `booking`, `payment`,
+  each with its own entities, repositories, services and controllers. Dependencies go one way; `payment` knows a
+  booking only by its ID, so it does not depend on `booking`.
+- **Rich entities.** Rules live on the entities (`Booking.cancel`, `LedgerEntry.reserve`,
+  `PaymentAttempt.requestRefund`) with no status setters; services load, call the entity and save.
+- **Rooms are counted, not numbered.** A room type has one or more variants (Standard, Sea View...), each with its
+  own room count, and the variant is what gets booked. Pools don't overlap, so a sea-view room can't also be sold as
+  standard. *Trade-off:* no room picking, which the brief doesn't need.
+- **Availability is a per-night ledger.** One row per variant per night holds the reserved count. Booking locks the
+  stay's rows (`SELECT ... FOR UPDATE`) in date order, checks every night and reserves all or none. Locking in
+  date order means overlapping stays queue instead of deadlocking. *Trade-off:* pessimistic locks over optimistic
+  retries, because the last rooms on busy dates are exactly where contention happens.
+- **Rooms are held at booking time.** A prepaid booking reserves the rooms and waits 15 minutes for payment; a job
+  expires unpaid holds and releases the rooms. *Trade-off:* rooms can be held by someone who never pays, instead of
+  charging a guest for a room that has gone by the time they pay.
+- **A booking keeps what was agreed.** Nightly prices are copied onto the booking, and it points to the exact,
+  immutable cancellation policy version in force when it was made. Later price or policy changes don't affect it.
+- **Payments don't block inventory.** The gateway is called with no database transaction open. If a payment
+  succeeds after the booking has already expired or been cancelled, it is refunded automatically. One record per
+  payment attempt and per refund attempt keeps the full history.
+- **Idempotency on the record itself.** Booking and payment requests need an `Idempotency-Key`; the key and a hash
+  of the request are stored on the booking or payment row, so the key and its effect are saved in one transaction.
+- **Races on one booking** (pay vs expire, pay vs cancel, two payments) are settled with optimistic version checks.
+- **Card data is never stored**: only the network and last four digits, as JSON on the payment attempt.
+
+Extension points, each a new class that Spring picks up, without touching the services that use it:
+
+| To add | Implement |
+|---|---|
+| a search filter | `SearchFilter` |
+| a pricing rule (seasons, discounts) | `PricingStrategy` (decorator, like `WeekendSurchargePricing`) |
+| a payment method (e.g. wallet) | `PaymentProcessor` + a `MethodDetails` record, plus a `PaymentMethod` value |
+| a refund policy shape | `RefundCalculator` |
+| a booking type | `BookingFlow`, plus a `BookingType` value |
+| a property kind | `PropertyKindRules`, plus a `PropertyKind` value |
+| a real payment provider | `PaymentGateway` |
+
 ## Key assumptions
 
 **Properties and rooms**
