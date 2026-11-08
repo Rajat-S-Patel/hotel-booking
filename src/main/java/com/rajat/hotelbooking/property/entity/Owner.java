@@ -20,7 +20,7 @@ import java.util.regex.Pattern;
 
 @Entity
 @Getter
-@Table(name = "owner", uniqueConstraints = @UniqueConstraint(name = "uk_contact_email", columnNames = "contacta_email"))
+@Table(name = "owner", uniqueConstraints = @UniqueConstraint(name = "uk_contact_email", columnNames = "contact_email"))
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class Owner extends BaseEntity {
     private static final Pattern EMAIL_PATTERN = Pattern.compile("[^@\\s]+@[^@\\s]+\\.[^@\\s]+");

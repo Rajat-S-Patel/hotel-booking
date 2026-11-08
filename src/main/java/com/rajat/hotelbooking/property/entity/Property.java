@@ -4,6 +4,7 @@ package com.rajat.hotelbooking.property.entity;
 import com.rajat.hotelbooking.common.entity.VersionedEntity;
 import com.rajat.hotelbooking.common.entity.enums.BookingType;
 import com.rajat.hotelbooking.common.util.PreConditions;
+import com.rajat.hotelbooking.policy.entity.Policy;
 import com.rajat.hotelbooking.property.entity.enums.PropertyKind;
 import com.rajat.hotelbooking.reference.entity.Amenity;
 import jakarta.persistence.CollectionTable;
@@ -88,12 +89,16 @@ public class Property extends VersionedEntity {
             inverseJoinColumns = @JoinColumn(name = "amenity_id"))
     private Set<Amenity> amenities = new HashSet<>();
 
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "cancellation_policy_id", nullable = false)
+    private Policy cancellationPolicy;
+
     @Column(nullable = false)
     private boolean active;
 
     public Property(Owner owner, String name, PropertyKind kind, Integer starRating, Address address,
                     LocalTime checkInTime, LocalTime checkOutTime, ZoneId timeZone,
-                    Set<BookingType> acceptedBookingTypes) {
+                    Set<BookingType> acceptedBookingTypes, Policy cancellationPolicy) {
         this.owner = PreConditions.requireNonNull(owner, "owner");
         this.name = PreConditions.requireText(name, "property name");
         this.kind = PreConditions.requireNonNull(kind, "property kind");
@@ -103,6 +108,7 @@ public class Property extends VersionedEntity {
         this.checkOutTime = checkOutTime != null ? checkOutTime : DEFAULT_CHECK_OUT_TIME;
         this.timeZone = timeZone != null ? timeZone : DEFAULT_TIME_ZONE;
         changeAcceptedBookingTypes(acceptedBookingTypes);
+        changeCancellationPolicy(cancellationPolicy);
         this.active = true;
     }
 
@@ -145,6 +151,13 @@ public class Property extends VersionedEntity {
 
     public void removeAmenity(Amenity amenity) {
         amenities.remove(amenity);
+    }
+
+    public void changeCancellationPolicy(Policy policy) {
+        PreConditions.requireNonNull(policy, "cancellation policy");
+        PreConditions.require(policy.isAvailableTo(owner.getId()),
+                "policy belongs to another owner: " + policy.getName());
+        this.cancellationPolicy = policy;
     }
 
     public void deactivate() {

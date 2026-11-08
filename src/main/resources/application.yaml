@@ -1,6 +1,11 @@
 spring:
   application:
     name: hotelbooking
+  jpa:
+    properties:
+      hibernate:
+        hbm2ddl:
+          halt_on_error: true
 
 springdoc:
   swagger-ui:
