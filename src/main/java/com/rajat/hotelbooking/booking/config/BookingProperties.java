@@ -9,5 +9,6 @@ import java.time.Duration;
 public record BookingProperties(
         @DefaultValue("15m") Duration holdDuration,
         @DefaultValue("60s") Duration expiryInterval,
-        @DefaultValue("50") int expiryBatchSize) {
+        @DefaultValue("50") int expiryBatchSize,
+        @DefaultValue("15m") Duration paymentTimeout) {
 }

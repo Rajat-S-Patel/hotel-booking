@@ -24,6 +24,7 @@ hotelbooking:
     hold-duration: 15m
     expiry-interval: 60s
     expiry-batch-size: 50
+    payment-timeout: 15m
   pricing:
     weekend-surcharge-percent: 20
   scheduling:

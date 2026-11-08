@@ -16,12 +16,15 @@ import com.rajat.hotelbooking.payment.repository.PaymentAttemptRepository;
 import com.rajat.hotelbooking.payment.repository.RefundAttemptRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.data.domain.Limit;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.transaction.support.TransactionTemplate;
 
 import java.time.Clock;
+import java.time.Instant;
+import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
@@ -71,6 +74,21 @@ public class PaymentService {
         } catch (RuntimeException e) {
             log.warn("gateway charge failed for payment {}", attempt.getId(), e);
             return ChargeResult.pending(null);
+        }
+    }
+
+    @Transactional(readOnly = true)
+    public List<PaymentAttempt> findStaleAttempts(Instant initiatedBefore, int limit) {
+        return paymentAttemptRepository.findByStatusAndCreatedAtLessThanEqualOrderByCreatedAtAsc(
+                PaymentStatus.INITIATED, initiatedBefore, Limit.of(limit));
+    }
+
+    // we never heard back from the gateway for this payment, give up on it
+    @Transactional
+    public void markTimedOut(UUID attemptId) {
+        PaymentAttempt attempt = paymentAttemptRepository.findById(attemptId).orElseThrow();
+        if (attempt.getStatus() == PaymentStatus.INITIATED) {
+            attempt.markFailed("no response from payment gateway", clock.instant());
         }
     }
 
