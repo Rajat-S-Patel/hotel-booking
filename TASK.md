@@ -21,7 +21,7 @@ Backend for a hotel booking platform. Owners list their properties; guests find 
 
 ### Payment
 - Collect payment for a booking
-- Card, UPI, wallet and future methods sit behind one shared abstraction
+- Card and UPI sit behind one shared payment abstraction, so wallet and future methods can be added the same way
 - Payment result updates booking state (e.g. success confirms the booking)
 
 ### Cancellation

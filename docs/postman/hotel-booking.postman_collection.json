@@ -1,0 +1,1010 @@
+{
+  "info": {
+    "name": "hotel-booking",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": "Hotel Booking API. Base URL is the collection variable baseUrl. IDs and booking references in the requests come from a sample run; the in-memory database resets on restart, so copy fresh IDs from earlier responses before sending."
+  },
+  "item": [
+    {
+      "name": "cities",
+      "item": [
+        {
+          "name": "cities",
+          "id": "499ef325-bc8a-4f89-9a43-6ee32aba244a",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/cities",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "cities"
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "8fe31b04-0115-4b32-95f8-4015dae8e42a",
+              "name": "200 - list cities",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/cities",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "cities"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "[\n  { \"id\": \"01a1bb0c-5202-7a22-adee-c078a7cdc113\", \"name\": \"Ahmedabad\" },\n  { \"id\": \"01a1bb0c-5203-7f0c-ae60-63019d6de2ea\", \"name\": \"Bengaluru\" },\n  { \"id\": \"01a1bb0c-51f4-775e-8040-020e9c4e5ed8\", \"name\": \"Goa\" },\n  { \"id\": \"01a1bb0c-5203-746e-aa85-af12da177abe\", \"name\": \"Mumbai\" }\n]"
+            }
+          ]
+        },
+        {
+          "name": "localities",
+          "id": "09bc8486-4938-4cbb-95f8-33ef9b6a26e1",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/cities/01a1bb0c-5202-7a22-adee-c078a7cdc113/localities",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "cities",
+                "01a1bb0c-5202-7a22-adee-c078a7cdc113",
+                "localities"
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "779e13df-b667-47cb-9554-ab4d58d9f523",
+              "name": "200 - localities of Ahmedabad",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/cities/01a1bb0c-5202-7a22-adee-c078a7cdc113/localities",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "cities",
+                    "01a1bb0c-5202-7a22-adee-c078a7cdc113",
+                    "localities"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "[\n  { \"id\": \"01a1bb0c-5203-7014-bbaa-d2243c2c804a\", \"name\": \"Navrangpura\", \"cityId\": \"01a1bb0c-5202-7a22-adee-c078a7cdc113\", \"cityName\": \"Ahmedabad\" },\n  { \"id\": \"01a1bb0c-5202-7ce3-9741-710bb69c2ead\", \"name\": \"SG Highway\", \"cityId\": \"01a1bb0c-5202-7a22-adee-c078a7cdc113\", \"cityName\": \"Ahmedabad\" },\n  { \"id\": \"01a1bb0c-5203-7243-8885-d44fae347769\", \"name\": \"Satellite\", \"cityId\": \"01a1bb0c-5202-7a22-adee-c078a7cdc113\", \"cityName\": \"Ahmedabad\" }\n]"
+            }
+          ]
+        }
+      ],
+      "id": "d5173096-c14e-418c-b85a-30453cefe1ed"
+    },
+    {
+      "name": "amenities",
+      "item": [
+        {
+          "name": "amenities",
+          "id": "fa818b63-0079-4ca4-a625-0033d3c73905",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/amenities",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "amenities"
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "e54c67ce-4402-4f71-bb60-8a39f7876e42",
+              "name": "200 - all amenities",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/amenities",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "amenities"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "[\n  { \"code\": \"AIR_CONDITIONING\", \"displayName\": \"Air conditioning\", \"scope\": \"ROOM\" },\n  { \"code\": \"BALCONY\", \"displayName\": \"Balcony\", \"scope\": \"ROOM\" },\n  { \"code\": \"BATHTUB\", \"displayName\": \"Bathtub\", \"scope\": \"ROOM\" },\n  { \"code\": \"GYM\", \"displayName\": \"Gym\", \"scope\": \"PROPERTY\" },\n  { \"code\": \"PARKING\", \"displayName\": \"Parking\", \"scope\": \"PROPERTY\" },\n  { \"code\": \"POOL\", \"displayName\": \"Swimming pool\", \"scope\": \"PROPERTY\" },\n  { \"code\": \"RESTAURANT\", \"displayName\": \"Restaurant\", \"scope\": \"PROPERTY\" },\n  { \"code\": \"SEA_VIEW\", \"displayName\": \"Sea view\", \"scope\": \"ROOM\" },\n  { \"code\": \"SPA\", \"displayName\": \"Spa\", \"scope\": \"PROPERTY\" },\n  { \"code\": \"WIFI\", \"displayName\": \"Free Wi-Fi\", \"scope\": \"PROPERTY\" }\n]"
+            }
+          ]
+        }
+      ],
+      "id": "ef3149f1-9a9e-43b3-b966-6266e2a6602a"
+    },
+    {
+      "name": "owners",
+      "item": [
+        {
+          "name": "owner onboard",
+          "id": "66ae61d2-2a01-4d1b-ada1-2ea5b2672ad5",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Rajat Hotels\",\n  \"kind\": \"INDIVIDUAL\",\n  \"contactEmail\": \"patelrajat2000@gmail.com\",\n  \"contactPhone\": \"01234567890\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/owners",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "owners"
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "baeb5403-dc04-43e1-b060-c9c4a80e44af",
+              "name": "201 - owner created",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"Rajat Hotels\",\n  \"kind\": \"INDIVIDUAL\",\n  \"contactEmail\": \"patelrajat2000@gmail.com\",\n  \"contactPhone\": \"01234567890\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/owners",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "owners"
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"id\": \"01a1bb0c-aaf0-7588-bb54-5c8e23e20dab\",\n  \"name\": \"Rajat Hotels\",\n  \"kind\": \"INDIVIDUAL\",\n  \"contactEmail\": \"patelrajat2000@gmail.com\",\n  \"contactPhone\": \"01234567890\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "add properties",
+          "id": "8e13e5ad-ccbc-443b-826e-019ac4e65ebf",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Skyline Hotel\",\n  \"kind\": \"HOTEL\",\n  \"starRating\": 4,\n  \"address\": {\n    \"line\": \"Opp ITC Narmada\",\n    \"pincode\": \"380015\",\n    \"localityId\": \"01a1bb0c-5203-7243-8885-d44fae347769\"\n  },\n  \"checkInTime\": \"12:00\",\n  \"checkOutTime\": \"11:00\",\n  \"timeZone\": \"Asia/Kolkata\",\n  \"acceptedBookingTypes\": [\"PREPAID\"],\n  \"cancellationPolicyId\": \"01a1bb0c-520e-7bfb-b2da-b5882d85305a\",\n  \"amenityCodes\": [\"WIFI\", \"POOL\", \"PARKING\"],\n  \"roomTypes\": [\n    {\n      \"name\": \"Deluxe\",\n      \"maxOccupancy\": 2,\n      \"basePrice\": 3000,\n      \"standardRoomCount\": 4,\n      \"featureCodes\": [\"AIR_CONDITIONING\"],\n      \"variants\": [\n        { \"name\": \"Lake View\", \"surcharge\": 800, \"roomCount\": 1, \"featureCodes\": [\"BALCONY\"] }\n      ]\n    },\n    {\n      \"name\": \"Suite\",\n      \"maxOccupancy\": 4,\n      \"basePrice\": 6500,\n      \"standardRoomCount\": 2,\n      \"featureCodes\": [\"AIR_CONDITIONING\", \"BATHTUB\"]\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/owners/01a1bb0c-aaf0-7588-bb54-5c8e23e20dab/properties",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "owners",
+                "01a1bb0c-aaf0-7588-bb54-5c8e23e20dab",
+                "properties"
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "ee2e8246-aaee-41a1-aea5-45bb209f3b02",
+              "name": "201 - property created",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"Skyline Hotel\",\n  \"kind\": \"HOTEL\",\n  \"starRating\": 4,\n  \"address\": {\n    \"line\": \"Opp ITC Narmada\",\n    \"pincode\": \"380015\",\n    \"localityId\": \"01a1bb0c-5203-7243-8885-d44fae347769\"\n  },\n  \"checkInTime\": \"12:00\",\n  \"checkOutTime\": \"11:00\",\n  \"timeZone\": \"Asia/Kolkata\",\n  \"acceptedBookingTypes\": [\"PREPAID\"],\n  \"cancellationPolicyId\": \"01a1bb0c-520e-7bfb-b2da-b5882d85305a\",\n  \"amenityCodes\": [\"WIFI\", \"POOL\", \"PARKING\"],\n  \"roomTypes\": [\n    {\n      \"name\": \"Deluxe\",\n      \"maxOccupancy\": 2,\n      \"basePrice\": 3000,\n      \"standardRoomCount\": 4,\n      \"featureCodes\": [\"AIR_CONDITIONING\"],\n      \"variants\": [\n        { \"name\": \"Lake View\", \"surcharge\": 800, \"roomCount\": 1, \"featureCodes\": [\"BALCONY\"] }\n      ]\n    },\n    {\n      \"name\": \"Suite\",\n      \"maxOccupancy\": 4,\n      \"basePrice\": 6500,\n      \"standardRoomCount\": 2,\n      \"featureCodes\": [\"AIR_CONDITIONING\", \"BATHTUB\"]\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/owners/01a1bb0c-aaf0-7588-bb54-5c8e23e20dab/properties",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "owners",
+                    "01a1bb0c-aaf0-7588-bb54-5c8e23e20dab",
+                    "properties"
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Location",
+                  "value": "http://localhost:8080/api/v1/properties/01a1bb0c-ab2c-78f1-891c-4c235cd7bcc3"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"id\": \"01a1bb0c-ab2c-78f1-891c-4c235cd7bcc3\",\n  \"ownerId\": \"01a1bb0c-aaf0-7588-bb54-5c8e23e20dab\",\n  \"name\": \"Skyline Hotel\",\n  \"kind\": \"HOTEL\",\n  \"starRating\": 4,\n  \"address\": {\n    \"line\": \"Opp ITC Narmada\",\n    \"pincode\": \"380015\",\n    \"localityId\": \"01a1bb0c-5203-7243-8885-d44fae347769\",\n    \"locality\": \"Satellite\",\n    \"cityId\": \"01a1bb0c-5202-7a22-adee-c078a7cdc113\",\n    \"city\": \"Ahmedabad\"\n  },\n  \"checkInTime\": \"12:00:00\",\n  \"checkOutTime\": \"11:00:00\",\n  \"timeZone\": \"Asia/Kolkata\",\n  \"acceptedBookingTypes\": [\"PREPAID\"],\n  \"amenities\": [\n    { \"code\": \"PARKING\", \"displayName\": \"Parking\", \"scope\": \"PROPERTY\" },\n    { \"code\": \"POOL\", \"displayName\": \"Swimming pool\", \"scope\": \"PROPERTY\" },\n    { \"code\": \"WIFI\", \"displayName\": \"Free Wi-Fi\", \"scope\": \"PROPERTY\" }\n  ],\n  \"cancellationPolicy\": {\n    \"id\": \"01a1bb0c-520e-7bfb-b2da-b5882d85305a\",\n    \"name\": \"Moderate\",\n    \"version\": 1,\n    \"kind\": \"TIERED\",\n    \"tiers\": [\n      { \"minHoursBeforeCheckIn\": 72, \"refundPercent\": 100 },\n      { \"minHoursBeforeCheckIn\": 24, \"refundPercent\": 50 }\n    ]\n  },\n  \"active\": true,\n  \"roomTypes\": [\n    {\n      \"id\": \"01a1bb0c-ab2c-7e8a-8626-af2b2b32c298\",\n      \"name\": \"Deluxe\",\n      \"maxOccupancy\": 2,\n      \"basePrice\": { \"amount\": 3000.00, \"currency\": \"INR\" },\n      \"baseFeatures\": [ { \"code\": \"AIR_CONDITIONING\", \"displayName\": \"Air conditioning\", \"scope\": \"ROOM\" } ],\n      \"totalRooms\": 5,\n      \"variants\": [\n        {\n          \"id\": \"01a1bb0c-ab2d-7119-86db-f4ee87c6d2e3\",\n          \"name\": \"Standard\",\n          \"standard\": true,\n          \"surcharge\": { \"amount\": 0.00, \"currency\": \"INR\" },\n          \"pricePerNight\": { \"amount\": 3000.00, \"currency\": \"INR\" },\n          \"roomCount\": 4,\n          \"features\": [ { \"code\": \"AIR_CONDITIONING\", \"displayName\": \"Air conditioning\", \"scope\": \"ROOM\" } ],\n          \"active\": true\n        },\n        {\n          \"id\": \"01a1bb0c-ab2d-7336-8044-6bbd00469fbc\",\n          \"name\": \"Lake View\",\n          \"standard\": false,\n          \"surcharge\": { \"amount\": 800.00, \"currency\": \"INR\" },\n          \"pricePerNight\": { \"amount\": 3800.00, \"currency\": \"INR\" },\n          \"roomCount\": 1,\n          \"features\": [\n            { \"code\": \"AIR_CONDITIONING\", \"displayName\": \"Air conditioning\", \"scope\": \"ROOM\" },\n            { \"code\": \"BALCONY\", \"displayName\": \"Balcony\", \"scope\": \"ROOM\" }\n          ],\n          \"active\": true\n        }\n      ]\n    },\n    {\n      \"id\": \"01a1bb0c-ab2d-76cc-b96a-276d7a21cf05\",\n      \"name\": \"Suite\",\n      \"maxOccupancy\": 4,\n      \"basePrice\": { \"amount\": 6500.00, \"currency\": \"INR\" },\n      \"baseFeatures\": [\n        { \"code\": \"AIR_CONDITIONING\", \"displayName\": \"Air conditioning\", \"scope\": \"ROOM\" },\n        { \"code\": \"BATHTUB\", \"displayName\": \"Bathtub\", \"scope\": \"ROOM\" }\n      ],\n      \"totalRooms\": 2,\n      \"variants\": [\n        {\n          \"id\": \"01a1bb0c-ab2d-78ee-837c-d600851be3dd\",\n          \"name\": \"Standard\",\n          \"standard\": true,\n          \"surcharge\": { \"amount\": 0.00, \"currency\": \"INR\" },\n          \"pricePerNight\": { \"amount\": 6500.00, \"currency\": \"INR\" },\n          \"roomCount\": 2,\n          \"features\": [\n            { \"code\": \"AIR_CONDITIONING\", \"displayName\": \"Air conditioning\", \"scope\": \"ROOM\" },\n            { \"code\": \"BATHTUB\", \"displayName\": \"Bathtub\", \"scope\": \"ROOM\" }\n          ],\n          \"active\": true\n        }\n      ]\n    }\n  ]\n}"
+            }
+          ]
+        }
+      ],
+      "id": "964a0d31-9052-471a-9bb9-592713695a1a"
+    },
+    {
+      "name": "cancellation-policies",
+      "item": [
+        {
+          "name": "cancellation-policies",
+          "id": "026fe139-8a4e-4727-9e97-2f4b9d00b731",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/cancellation-policies",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "cancellation-policies"
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "89ed4106-9202-4536-a410-66ebb39cc286",
+              "name": "200 - platform policies",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/cancellation-policies",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "cancellation-policies"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "[\n  {\n    \"id\": \"01a1bb0c-5207-75c8-9810-710867a32773\",\n    \"name\": \"Flexible\",\n    \"version\": 1,\n    \"kind\": \"TIERED\",\n    \"tiers\": [ { \"minHoursBeforeCheckIn\": 24, \"refundPercent\": 100 } ]\n  },\n  {\n    \"id\": \"01a1bb0c-520e-7bfb-b2da-b5882d85305a\",\n    \"name\": \"Moderate\",\n    \"version\": 1,\n    \"kind\": \"TIERED\",\n    \"tiers\": [\n      { \"minHoursBeforeCheckIn\": 72, \"refundPercent\": 100 },\n      { \"minHoursBeforeCheckIn\": 24, \"refundPercent\": 50 }\n    ]\n  },\n  {\n    \"id\": \"01a1bb0c-520f-7496-bb47-0744607e3c26\",\n    \"name\": \"Strict\",\n    \"version\": 1,\n    \"kind\": \"TIERED\",\n    \"tiers\": [ { \"minHoursBeforeCheckIn\": 168, \"refundPercent\": 50 } ]\n  }\n]"
+            }
+          ]
+        }
+      ],
+      "id": "749d0e97-accf-41c6-802a-6fe42036f492"
+    },
+    {
+      "name": "search",
+      "item": [
+        {
+          "name": "search",
+          "id": "0cec574e-1bb5-4a73-bb65-65f75223f5f2",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/properties/search?city=Ahmedabad&locality=Satellite&checkIn=2026-12-01&checkOut=2026-12-03&guests=2&rooms=1&minPrice=2000&maxPrice=6000&amenities=WIFI&minStars=4&kind=HOTEL&sort=PRICE_ASC&page=0&size=20",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "properties",
+                "search"
+              ],
+              "query": [
+                {
+                  "key": "city",
+                  "value": "Ahmedabad"
+                },
+                {
+                  "key": "locality",
+                  "value": "Satellite"
+                },
+                {
+                  "key": "checkIn",
+                  "value": "2026-12-01"
+                },
+                {
+                  "key": "checkOut",
+                  "value": "2026-12-03"
+                },
+                {
+                  "key": "guests",
+                  "value": "2"
+                },
+                {
+                  "key": "rooms",
+                  "value": "1"
+                },
+                {
+                  "key": "minPrice",
+                  "value": "2000"
+                },
+                {
+                  "key": "maxPrice",
+                  "value": "6000"
+                },
+                {
+                  "key": "amenities",
+                  "value": "WIFI"
+                },
+                {
+                  "key": "minStars",
+                  "value": "4"
+                },
+                {
+                  "key": "kind",
+                  "value": "HOTEL"
+                },
+                {
+                  "key": "sort",
+                  "value": "PRICE_ASC"
+                },
+                {
+                  "key": "page",
+                  "value": "0"
+                },
+                {
+                  "key": "size",
+                  "value": "20"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "d9026fff-478b-4e27-94a7-d5ccc8e4a802",
+              "name": "200 - Skyline Hotel found",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/properties/search?city=Ahmedabad&locality=Satellite&checkIn=2026-12-01&checkOut=2026-12-03&guests=2&rooms=1&minPrice=2000&maxPrice=6000&amenities=WIFI&minStars=4&kind=HOTEL&sort=PRICE_ASC&page=0&size=20",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "properties",
+                    "search"
+                  ],
+                  "query": [
+                    {
+                      "key": "city",
+                      "value": "Ahmedabad"
+                    },
+                    {
+                      "key": "locality",
+                      "value": "Satellite"
+                    },
+                    {
+                      "key": "checkIn",
+                      "value": "2026-12-01"
+                    },
+                    {
+                      "key": "checkOut",
+                      "value": "2026-12-03"
+                    },
+                    {
+                      "key": "guests",
+                      "value": "2"
+                    },
+                    {
+                      "key": "rooms",
+                      "value": "1"
+                    },
+                    {
+                      "key": "minPrice",
+                      "value": "2000"
+                    },
+                    {
+                      "key": "maxPrice",
+                      "value": "6000"
+                    },
+                    {
+                      "key": "amenities",
+                      "value": "WIFI"
+                    },
+                    {
+                      "key": "minStars",
+                      "value": "4"
+                    },
+                    {
+                      "key": "kind",
+                      "value": "HOTEL"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "PRICE_ASC"
+                    },
+                    {
+                      "key": "page",
+                      "value": "0"
+                    },
+                    {
+                      "key": "size",
+                      "value": "20"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"content\": [\n    {\n      \"propertyId\": \"01a1bb0c-ab2c-78f1-891c-4c235cd7bcc3\",\n      \"name\": \"Skyline Hotel\",\n      \"kind\": \"HOTEL\",\n      \"starRating\": 4,\n      \"locality\": \"Satellite\",\n      \"city\": \"Ahmedabad\",\n      \"amenities\": [\"PARKING\", \"POOL\", \"WIFI\"],\n      \"lowestTotalPrice\": { \"amount\": 6000.00, \"currency\": \"INR\" },\n      \"offers\": [\n        {\n          \"variantId\": \"01a1bb0c-ab2d-7119-86db-f4ee87c6d2e3\",\n          \"roomType\": \"Deluxe\",\n          \"variant\": \"Standard\",\n          \"maxOccupancy\": 2,\n          \"availableRooms\": 4,\n          \"averagePricePerNight\": { \"amount\": 3000.00, \"currency\": \"INR\" },\n          \"totalPrice\": { \"amount\": 6000.00, \"currency\": \"INR\" },\n          \"features\": [\"AIR_CONDITIONING\"]\n        },\n        {\n          \"variantId\": \"01a1bb0c-ab2d-7336-8044-6bbd00469fbc\",\n          \"roomType\": \"Deluxe\",\n          \"variant\": \"Lake View\",\n          \"maxOccupancy\": 2,\n          \"availableRooms\": 1,\n          \"averagePricePerNight\": { \"amount\": 3800.00, \"currency\": \"INR\" },\n          \"totalPrice\": { \"amount\": 7600.00, \"currency\": \"INR\" },\n          \"features\": [\"AIR_CONDITIONING\", \"BALCONY\"]\n        }\n      ]\n    }\n  ],\n  \"page\": 0,\n  \"size\": 20,\n  \"totalElements\": 1,\n  \"totalPages\": 1\n}"
+            }
+          ]
+        }
+      ],
+      "id": "78b8e010-aaa7-4537-b8e8-4ba59299b4de"
+    },
+    {
+      "name": "booking",
+      "item": [
+        {
+          "name": "booking",
+          "id": "756d6668-aaa2-4f55-9dea-e04b6249bf96",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Idempotency-Key",
+                "value": "book-001",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"variantId\": \"01a1bb0c-ab2d-7119-86db-f4ee87c6d2e3\",\n  \"checkIn\": \"2026-12-01\",\n  \"checkOut\": \"2026-12-02\",\n  \"rooms\": 1,\n  \"guests\": 2,\n  \"bookingType\": \"PREPAID\",\n  \"customer\": {\n    \"name\": \"Rajat\",\n    \"email\": \"rajat@example.com\",\n    \"phone\": \"+919811111111\"\n  },\n  \"guest\": {\n    \"name\": \"Rajat Patel\",\n    \"phone\": \"+919811111112\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/bookings",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "bookings"
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "8cd32eb2-2c7f-4622-9113-74b13ec0457f",
+              "name": "201 - booking held, pending payment",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Idempotency-Key",
+                    "value": "book-001",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"variantId\": \"01a1bb0c-ab2d-7119-86db-f4ee87c6d2e3\",\n  \"checkIn\": \"2026-12-01\",\n  \"checkOut\": \"2026-12-02\",\n  \"rooms\": 1,\n  \"guests\": 2,\n  \"bookingType\": \"PREPAID\",\n  \"customer\": {\n    \"name\": \"Rajat\",\n    \"email\": \"rajat@example.com\",\n    \"phone\": \"+919811111111\"\n  },\n  \"guest\": {\n    \"name\": \"Rajat Patel\",\n    \"phone\": \"+919811111112\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/bookings",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "bookings"
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Location",
+                  "value": "http://localhost:8080/api/v1/bookings/HB2C3TLFJ3"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"reference\": \"HB2C3TLFJ3\",\n  \"status\": \"PENDING_PAYMENT\",\n  \"bookingType\": \"PREPAID\",\n  \"propertyId\": \"01a1bb0c-ab2c-78f1-891c-4c235cd7bcc3\",\n  \"propertyName\": \"Skyline Hotel\",\n  \"variantId\": \"01a1bb0c-ab2d-7119-86db-f4ee87c6d2e3\",\n  \"roomType\": \"Deluxe\",\n  \"variant\": \"Standard\",\n  \"checkIn\": \"2026-12-01\",\n  \"checkOut\": \"2026-12-02\",\n  \"nights\": 1,\n  \"rooms\": 1,\n  \"guests\": 2,\n  \"customer\": { \"name\": \"Rajat\", \"email\": \"rajat@example.com\" },\n  \"guest\": { \"name\": \"Rajat Patel\", \"phone\": \"+919811111112\" },\n  \"total\": { \"amount\": 3000.00, \"currency\": \"INR\" },\n  \"nightlyPrices\": [\n    {\n      \"night\": \"2026-12-01\",\n      \"baseRate\": { \"amount\": 3000.00, \"currency\": \"INR\" },\n      \"surcharge\": { \"amount\": 0.00, \"currency\": \"INR\" },\n      \"rooms\": 1,\n      \"amount\": { \"amount\": 3000.00, \"currency\": \"INR\" }\n    }\n  ],\n  \"cancellationPolicy\": \"Moderate\",\n  \"cancellationPolicyVersion\": 1,\n  \"holdExpiresAt\": \"2026-11-08T12:20:32.196470670Z\",\n  \"confirmedAt\": null,\n  \"cancelledAt\": null,\n  \"expiredAt\": null\n}"
+            }
+          ]
+        },
+        {
+          "name": "get booking",
+          "id": "8557d6ac-aab8-4313-9183-94ba6892e656",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/bookings/HB2C3TLFJ3",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "bookings",
+                "HB2C3TLFJ3"
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "5364e866-9f8e-4c4b-b18b-d2b216d23104",
+              "name": "200 - pending payment",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/bookings/HB2C3TLFJ3",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "bookings",
+                    "HB2C3TLFJ3"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"reference\": \"HB2C3TLFJ3\",\n  \"status\": \"PENDING_PAYMENT\",\n  \"bookingType\": \"PREPAID\",\n  \"propertyId\": \"01a1bb0c-ab2c-78f1-891c-4c235cd7bcc3\",\n  \"propertyName\": \"Skyline Hotel\",\n  \"variantId\": \"01a1bb0c-ab2d-7119-86db-f4ee87c6d2e3\",\n  \"roomType\": \"Deluxe\",\n  \"variant\": \"Standard\",\n  \"checkIn\": \"2026-12-01\",\n  \"checkOut\": \"2026-12-02\",\n  \"nights\": 1,\n  \"rooms\": 1,\n  \"guests\": 2,\n  \"customer\": { \"name\": \"Rajat\", \"email\": \"rajat@example.com\" },\n  \"guest\": { \"name\": \"Rajat Patel\", \"phone\": \"+919811111112\" },\n  \"total\": { \"amount\": 3000.00, \"currency\": \"INR\" },\n  \"nightlyPrices\": [\n    {\n      \"night\": \"2026-12-01\",\n      \"baseRate\": { \"amount\": 3000.00, \"currency\": \"INR\" },\n      \"surcharge\": { \"amount\": 0.00, \"currency\": \"INR\" },\n      \"rooms\": 1,\n      \"amount\": { \"amount\": 3000.00, \"currency\": \"INR\" }\n    }\n  ],\n  \"cancellationPolicy\": \"Moderate\",\n  \"cancellationPolicyVersion\": 1,\n  \"holdExpiresAt\": \"2026-11-08T12:20:32.196471Z\",\n  \"confirmedAt\": null,\n  \"cancelledAt\": null,\n  \"expiredAt\": null\n}"
+            }
+          ]
+        },
+        {
+          "name": "pay booking (card)",
+          "id": "f674ba3a-f55b-495d-bf8b-227870ed151b",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Idempotency-Key",
+                "value": "pay-001"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"method\": \"CARD\",\n  \"amount\": 3000,\n  \"card\": {\n    \"number\": \"4242424242424242\",\n    \"expiryMonth\": 12,\n    \"expiryYear\": 2030,\n    \"cvv\": \"123\",\n    \"holderName\": \"Rajat Patel\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/bookings/HB2C3TLFJ3/payments",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "bookings",
+                "HB2C3TLFJ3",
+                "payments"
+              ]
+            },
+            "description": "Test cards: ...4242 succeeds, 4000000000000002 is declined (402), 4000000000000119 stays pending (202), 4000000000000341 succeeds but its refund is rejected."
+          },
+          "response": [
+            {
+              "id": "8eb181f3-4ed7-4e2d-8cf6-934f998606d0",
+              "name": "200 - card payment succeeded, booking confirmed",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Idempotency-Key",
+                    "value": "pay-001"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"method\": \"CARD\",\n  \"amount\": 3000,\n  \"card\": {\n    \"number\": \"4242424242424242\",\n    \"expiryMonth\": 12,\n    \"expiryYear\": 2030,\n    \"cvv\": \"123\",\n    \"holderName\": \"Rajat Patel\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/bookings/HB2C3TLFJ3/payments",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "bookings",
+                    "HB2C3TLFJ3",
+                    "payments"
+                  ]
+                },
+                "description": "Test cards: ...4242 succeeds, 4000000000000002 is declined (402), 4000000000000119 stays pending (202), 4000000000000341 succeeds but its refund is rejected."
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"paymentId\": \"01a1bb0c-abe4-74b4-9e54-1cfd2821e150\",\n  \"bookingReference\": \"HB2C3TLFJ3\",\n  \"bookingStatus\": \"CONFIRMED\",\n  \"status\": \"SUCCEEDED\",\n  \"method\": \"CARD\",\n  \"amount\": { \"amount\": 3000.00, \"currency\": \"INR\" },\n  \"paymentMethodSummary\": \"VISA **** 4242\",\n  \"gatewayReference\": \"pg_06be40ed-b9cf-4330-8525-9b8f201ac0b8\",\n  \"failureReason\": null,\n  \"completedAt\": \"2026-11-08T12:05:32.295697262Z\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "pay booking (upi)",
+          "id": "5f62e122-2d50-4ed0-a95e-85e25a7fd48a",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Idempotency-Key",
+                "value": "pay-003"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"method\": \"UPI\",\n  \"amount\": 3600,\n  \"upi\": {\n    \"upiId\": \"rajat@okaxis\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/bookings/HB68KUNCZY/payments",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "bookings",
+                "HB68KUNCZY",
+                "payments"
+              ]
+            },
+            "description": "Test UPI ids: fail@okaxis is declined (402), pending@okaxis stays pending (202), anything else succeeds."
+          },
+          "response": [
+            {
+              "id": "64a86e54-0087-4e96-8cea-c88d398b01dd",
+              "name": "200 - UPI payment succeeded (weekend night)",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Idempotency-Key",
+                    "value": "pay-003"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"method\": \"UPI\",\n  \"amount\": 3600,\n  \"upi\": {\n    \"upiId\": \"rajat@okaxis\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/bookings/HB68KUNCZY/payments",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "bookings",
+                    "HB68KUNCZY",
+                    "payments"
+                  ]
+                },
+                "description": "Test UPI ids: fail@okaxis is declined (402), pending@okaxis stays pending (202), anything else succeeds."
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"paymentId\": \"01a1bb0c-e860-7672-be15-55f8ed681195\",\n  \"bookingReference\": \"HB68KUNCZY\",\n  \"bookingStatus\": \"CONFIRMED\",\n  \"status\": \"SUCCEEDED\",\n  \"method\": \"UPI\",\n  \"amount\": { \"amount\": 3600.00, \"currency\": \"INR\" },\n  \"paymentMethodSummary\": \"rajat@okaxis\",\n  \"gatewayReference\": \"pg_a5be0740-d12b-4e11-aab6-cb9c0d269a9d\",\n  \"failureReason\": null,\n  \"completedAt\": \"2026-11-08T12:05:47.747196624Z\"\n}"
+            },
+            {
+              "id": "f6483a81-a540-481d-bd5c-3362e2d8b12e",
+              "name": "409 - booking already paid",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Idempotency-Key",
+                    "value": "pay-003"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"method\": \"UPI\",\n  \"amount\": 3600,\n  \"upi\": {\n    \"upiId\": \"rajat@okaxis\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/bookings/HB68KUNCZY/payments",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "bookings",
+                    "HB68KUNCZY",
+                    "payments"
+                  ]
+                },
+                "description": "Test UPI ids: fail@okaxis is declined (402), pending@okaxis stays pending (202), anything else succeeds."
+              },
+              "status": "Conflict",
+              "code": 409,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"detail\": \"booking HB2C3TLFJ3 is CONFIRMED, no payment is due\",\n  \"instance\": \"/api/v1/bookings/HB2C3TLFJ3/payments\",\n  \"status\": 409,\n  \"title\": \"Conflict\",\n  \"errorCode\": \"CONFLICT\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "cancel booking",
+          "id": "cbfcdbc2-f3ac-4d2a-b7c6-5e79f3cb3047",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/bookings/HB2C3TLFJ3/cancellation",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "bookings",
+                "HB2C3TLFJ3",
+                "cancellation"
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "b4630513-d8ac-407c-8c37-392a3bf735be",
+              "name": "200 - cancelled with full refund",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/bookings/HB2C3TLFJ3/cancellation",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "bookings",
+                    "HB2C3TLFJ3",
+                    "cancellation"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"reference\": \"HB2C3TLFJ3\",\n  \"status\": \"CANCELLED\",\n  \"cancelledAt\": \"2026-11-08T12:05:32.320396057Z\",\n  \"refund\": {\n    \"id\": \"01a1bb0c-ac29-71b0-8e36-08487e7b9a10\",\n    \"amount\": { \"amount\": 3000.00, \"currency\": \"INR\" },\n    \"status\": \"SUCCEEDED\",\n    \"reason\": \"CANCELLATION\",\n    \"gatewayRefundReference\": \"rf_b0804481-7dd4-4f5e-9f0f-3b63513a3d0b\",\n    \"failureReason\": null,\n    \"completedAt\": \"2026-11-08T12:05:32.335135757Z\"\n  }\n}"
+            }
+          ]
+        }
+      ],
+      "id": "7ed29ca3-b74c-4932-a0c1-ec39fc10149b"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:8080/api/v1",
+      "type": "string"
+    }
+  ]
+}
