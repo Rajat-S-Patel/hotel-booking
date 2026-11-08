@@ -6,7 +6,6 @@ import com.rajat.hotelbooking.policy.mapper.PolicyMapper;
 import com.rajat.hotelbooking.property.dto.AddressResponse;
 import com.rajat.hotelbooking.property.dto.OwnerResponse;
 import com.rajat.hotelbooking.property.dto.PropertyResponse;
-import com.rajat.hotelbooking.property.dto.PropertySummaryResponse;
 import com.rajat.hotelbooking.property.dto.RoomTypeResponse;
 import com.rajat.hotelbooking.property.dto.VariantResponse;
 import com.rajat.hotelbooking.property.entity.Address;
@@ -26,12 +25,7 @@ import java.util.List;
 @Mapper(uses = {MoneyMapper.class, ReferenceMapper.class, PolicyMapper.class})
 public interface PropertyMapper {
 
-    @Mapping(target = "properties", source = "properties")
-    OwnerResponse toResponse(Owner owner, List<Property> properties);
-
-    @Mapping(target = "locality", source = "address.locality.name")
-    @Mapping(target = "city", source = "address.locality.city.name")
-    PropertySummaryResponse toSummary(Property property);
+    OwnerResponse toResponse(Owner owner);
 
     @Mapping(target = "id", source = "property.id")
     @Mapping(target = "ownerId", source = "property.owner.id")

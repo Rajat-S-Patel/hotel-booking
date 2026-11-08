@@ -1,7 +1,15 @@
 spring:
   application:
     name: hotelbooking
+  datasource:
+    url: jdbc:h2:mem:hotelbooking;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+    username: sa
+    password:
+  h2:
+    console:
+      enabled: true
   jpa:
+    open-in-view: false
     properties:
       hibernate:
         hbm2ddl:
@@ -10,3 +18,15 @@ spring:
 springdoc:
   swagger-ui:
     path: /swagger-ui.html
+
+hotelbooking:
+  booking:
+    hold-duration: 15m
+    expiry-interval: 60s
+    expiry-batch-size: 50
+  pricing:
+    weekend-surcharge-percent: 20
+  scheduling:
+    enabled: true
+  seed:
+    enabled: true

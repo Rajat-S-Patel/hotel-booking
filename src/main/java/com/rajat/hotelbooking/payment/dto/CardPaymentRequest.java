@@ -26,7 +26,7 @@ public record CardPaymentRequest(
 
     @Override
     public String toString() {
-        return "CardPaymentRequest[number=•••• " + last4() + ", expiry=" + expiryMonth + "/" + expiryYear
+        return "CardPaymentRequest[number=**** " + last4() + ", expiry=" + expiryMonth + "/" + expiryYear
                 + ", cvv=***, holderName=" + holderName + "]";
     }
 }

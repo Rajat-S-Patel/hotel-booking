@@ -10,18 +10,20 @@ import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import java.net.URI;
 import java.util.UUID;
 
-@Tag(name = "Owners", description = "Onboard a standalone property or a multi-property owner")
+@Tag(name = "Owners", description = "Owner and property onboarding")
 @RestController
 @RequestMapping(ApiPaths.V1 + "/owners")
 @RequiredArgsConstructor
@@ -29,13 +31,11 @@ public class OwnerController {
 
     private final PropertyOnboardingService onboardingService;
 
-    @Operation(summary = "Onboard an owner with one or more properties (a standalone hotel is an owner with one property)")
+    @Operation(summary = "Onboard an owner")
     @PostMapping
-    public ResponseEntity<OwnerResponse> onboardOwner(@Valid @RequestBody OnboardOwnerRequest request) {
-        OwnerResponse owner = onboardingService.onboardOwner(request);
-        URI location = ServletUriComponentsBuilder.fromCurrentRequest()
-                .path("/{ownerId}").buildAndExpand(owner.id()).toUri();
-        return ResponseEntity.created(location).body(owner);
+    @ResponseStatus(HttpStatus.CREATED)
+    public OwnerResponse onboardOwner(@Valid @RequestBody OnboardOwnerRequest request) {
+        return onboardingService.onboardOwner(request);
     }
 
     @Operation(summary = "Add a property to an existing owner")

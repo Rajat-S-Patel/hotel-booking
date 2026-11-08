@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 import java.util.UUID;
 
-@Tag(name = "Reference data", description = "Cities, localities and amenities used to build requests")
+@Tag(name = "Reference data", description = "Cities, localities and amenities")
 @RestController
 @RequestMapping(ApiPaths.V1)
 @RequiredArgsConstructor
@@ -38,7 +38,7 @@ public class ReferenceDataController {
         return referenceDataService.listLocalities(cityId);
     }
 
-    @Operation(summary = "List amenities, optionally filtered by scope (PROPERTY or ROOM)")
+    @Operation(summary = "List amenities")
     @GetMapping("/amenities")
     public List<AmenityResponse> listAmenities(@RequestParam(required = false) AmenityScope scope) {
         return referenceDataService.listAmenities(scope);

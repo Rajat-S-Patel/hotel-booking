@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
-@Tag(name = "Cancellation policies", description = "Platform cancellation policies a property can choose")
+@Tag(name = "Cancellation policies", description = "Cancellation policies")
 @RestController
 @RequestMapping(ApiPaths.V1 + "/cancellation-policies")
 @RequiredArgsConstructor
@@ -20,7 +20,7 @@ public class PolicyController {
 
     private final PolicyQueryService policyQueryService;
 
-    @Operation(summary = "List platform cancellation policies with their current tiers")
+    @Operation(summary = "List platform cancellation policies")
     @GetMapping
     public List<PolicyResponse> listPlatformPolicies() {
         return policyQueryService.listPlatformPolicies();

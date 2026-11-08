@@ -20,6 +20,8 @@ repositories {
 
 ext {
 	mapstructVersion = '1.6.3'
+	// 2.4.240 breaks "check (col in (...))" constraints once the connection that created them closes
+	set('h2.version', '2.3.232')
 }
 
 dependencies {

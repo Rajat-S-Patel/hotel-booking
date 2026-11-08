@@ -30,7 +30,7 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import java.net.URI;
 
-@Tag(name = "Bookings", description = "Book a room, pay for it and cancel it")
+@Tag(name = "Bookings", description = "Bookings, payments and cancellation")
 @RestController
 @RequestMapping(ApiPaths.V1 + "/bookings")
 @RequiredArgsConstructor
@@ -40,7 +40,7 @@ public class BookingController {
     private final BookingPaymentService paymentService;
     private final BookingCancellationService cancellationService;
 
-    @Operation(summary = "Create a booking; prepaid bookings hold the rooms for 15 minutes pending payment")
+    @Operation(summary = "Create a booking")
     @PostMapping
     public ResponseEntity<BookingResponse> createBooking(
             @RequestHeader(ApiPaths.IDEMPOTENCY_KEY_HEADER) @NotBlank @Size(max = 100) String idempotencyKey,
@@ -51,13 +51,13 @@ public class BookingController {
         return ResponseEntity.created(location).body(booking);
     }
 
-    @Operation(summary = "Get a booking with its status and nightly price breakdown")
+    @Operation(summary = "Get booking by reference")
     @GetMapping("/{reference}")
     public BookingResponse getBooking(@PathVariable @Pattern(regexp = ValidationPatterns.BOOKING_REFERENCE) String reference) {
         return bookingService.get(reference);
     }
 
-    @Operation(summary = "Pay for a booking by card or UPI; returns 402 when the payment is declined")
+    @Operation(summary = "Pay for a booking (402 if declined)")
     @PostMapping("/{reference}/payments")
     public ResponseEntity<PaymentResponse> pay(
             @PathVariable @Pattern(regexp = ValidationPatterns.BOOKING_REFERENCE) String reference,
@@ -72,7 +72,7 @@ public class BookingController {
         return ResponseEntity.status(status).body(payment);
     }
 
-    @Operation(summary = "Cancel a booking; refunds according to the cancellation policy captured at booking time")
+    @Operation(summary = "Cancel a booking")
     @PostMapping("/{reference}/cancellation")
     public CancellationResponse cancel(@PathVariable @Pattern(regexp = ValidationPatterns.BOOKING_REFERENCE) String reference) {
         return cancellationService.cancel(reference);

@@ -2,7 +2,6 @@ package com.rajat.hotelbooking.property.dto;
 
 import com.rajat.hotelbooking.property.entity.enums.OwnerKind;
 
-import java.util.List;
 import java.util.UUID;
 
 public record OwnerResponse(
@@ -10,6 +9,5 @@ public record OwnerResponse(
         String name,
         OwnerKind kind,
         String contactEmail,
-        String contactPhone,
-        List<PropertySummaryResponse> properties) {
+        String contactPhone) {
 }

@@ -1,4 +1,4 @@
-package com.rajat.hotelbooking.property.dto;
+package com.rajat.hotelbooking.search.dto;
 
 public enum SearchSort {
     PRICE_ASC,

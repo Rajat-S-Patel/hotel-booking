@@ -23,6 +23,6 @@ public record CardDetails(String network, String last4) implements MethodDetails
 
     @Override
     public String displaySummary() {
-        return network + " •••• " + last4;
+        return network + " **** " + last4;
     }
 }

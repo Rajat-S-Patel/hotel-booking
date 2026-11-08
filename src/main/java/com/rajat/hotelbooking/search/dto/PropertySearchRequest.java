@@ -1,4 +1,4 @@
-package com.rajat.hotelbooking.property.dto;
+package com.rajat.hotelbooking.search.dto;
 
 import com.rajat.hotelbooking.property.entity.enums.PropertyKind;
 import jakarta.validation.constraints.AssertTrue;
