@@ -8,12 +8,4 @@ public enum RefundStatus {
     public boolean canTransitionTo(RefundStatus next) {
         return this == INITIATED && (next == SUCCEEDED || next == FAILED);
     }
-
-    public boolean isTerminal() {
-        return this != INITIATED;
-    }
-
-    public boolean countsTowardsRefunded() {
-        return this == INITIATED || this == SUCCEEDED;
-    }
 }

@@ -92,28 +92,12 @@ public class Variant extends VersionedEntity {
         return Collections.unmodifiableSet(all);
     }
 
-    public Set<Amenity> getExtraFeatures() {
-        return Collections.unmodifiableSet(extraFeatures);
-    }
-
     public void addExtraFeature(Amenity feature) {
         PreConditions.requireNonNull(feature, "feature");
         PreConditions.require(!standard, "the Standard variant has no extra features");
         PreConditions.require(feature.isRoomFeature(),
                 "property amenity cannot be a room feature: " + feature.getCode());
         extraFeatures.add(feature);
-    }
-
-    public void removeExtraFeature(Amenity feature) {
-        extraFeatures.remove(feature);
-    }
-
-    public void changeSurcharge(Money newSurcharge) {
-        PreConditions.requireNonNull(newSurcharge, "surcharge");
-        PreConditions.require(!standard || newSurcharge.isZero(), "the Standard variant has no surcharge");
-        PreConditions.require(newSurcharge.currency().equals(surcharge.currency()),
-                "surcharge currency cannot change: " + surcharge.currency());
-        this.surcharge = newSurcharge;
     }
 
     public void changeRoomCount(int newRoomCount) {

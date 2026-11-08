@@ -1,6 +1,5 @@
 package com.rajat.hotelbooking.property.repository;
 
-import com.rajat.hotelbooking.property.entity.Owner;
 import com.rajat.hotelbooking.property.entity.Property;
 import com.rajat.hotelbooking.property.entity.enums.PropertyKind;
 import org.springframework.data.jpa.repository.Query;
@@ -16,8 +15,6 @@ public interface PropertyRepository extends Repository<Property, UUID> {
     Property save(Property property);
 
     Optional<Property> findById(UUID id);
-
-    List<Property> findByOwnerOrderByNameAsc(Owner owner);
 
     @Query("""
             select p from Property p

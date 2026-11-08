@@ -149,10 +149,6 @@ public class Property extends VersionedEntity {
         amenities.add(amenity);
     }
 
-    public void removeAmenity(Amenity amenity) {
-        amenities.remove(amenity);
-    }
-
     public void changeCancellationPolicy(Policy policy) {
         PreConditions.requireNonNull(policy, "cancellation policy");
         PreConditions.require(policy.isAvailableTo(owner.getId()),

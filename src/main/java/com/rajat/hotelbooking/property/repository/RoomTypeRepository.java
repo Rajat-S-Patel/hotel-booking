@@ -8,14 +8,11 @@ import org.springframework.data.repository.query.Param;
 
 import java.util.Collection;
 import java.util.List;
-import java.util.Optional;
 import java.util.UUID;
 
 public interface RoomTypeRepository extends Repository<RoomType, UUID> {
 
     RoomType save(RoomType roomType);
-
-    Optional<RoomType> findById(UUID id);
 
     List<RoomType> findByPropertyOrderByNameAsc(Property property);
 

@@ -13,7 +13,5 @@ public interface PolicyRepository extends Repository<Policy, UUID> {
 
     Optional<Policy> findById(UUID id);
 
-    Optional<Policy> findByNameIgnoreCaseAndOwnerIdIsNull(String name);
-
     List<Policy> findByOwnerIdIsNullOrderByNameAsc();
 }

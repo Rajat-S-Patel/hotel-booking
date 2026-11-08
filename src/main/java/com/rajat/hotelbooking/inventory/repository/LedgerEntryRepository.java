@@ -16,8 +16,6 @@ import java.util.UUID;
 
 public interface LedgerEntryRepository extends Repository<LedgerEntry, UUID> {
 
-    LedgerEntry save(LedgerEntry entry);
-
     LedgerEntry saveAndFlush(LedgerEntry entry);
 
     @Query("""

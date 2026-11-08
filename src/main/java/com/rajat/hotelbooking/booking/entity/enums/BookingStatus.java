@@ -19,9 +19,6 @@ public enum BookingStatus {
     public boolean canTransitionTo(BookingStatus next) {
         return allowedNext().contains(next);
     }
-    public boolean isTerminal() {
-        return allowedNext().isEmpty();
-    }
     public boolean holdsInventory() {
         return this == PENDING_PAYMENT || this == CONFIRMED;
     }

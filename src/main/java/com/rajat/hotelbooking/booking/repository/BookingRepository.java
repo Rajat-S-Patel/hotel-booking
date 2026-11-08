@@ -16,8 +16,6 @@ import java.util.UUID;
 
 public interface BookingRepository extends Repository<Booking, UUID> {
 
-    Booking save(Booking booking);
-
     Booking saveAndFlush(Booking booking);
 
     Optional<Booking> findById(UUID id);

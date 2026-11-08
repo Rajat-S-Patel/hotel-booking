@@ -13,6 +13,7 @@ import com.rajat.hotelbooking.booking.mapper.BookingMapper;
 import com.rajat.hotelbooking.booking.repository.BookingRepository;
 import com.rajat.hotelbooking.booking.repository.CustomerRepository;
 import com.rajat.hotelbooking.common.exception.ConflictException;
+import com.rajat.hotelbooking.common.exception.DomainValidationException;
 import com.rajat.hotelbooking.common.exception.NotFoundException;
 import com.rajat.hotelbooking.common.util.ContactDetails;
 import com.rajat.hotelbooking.common.util.RequestFingerprint;
@@ -28,6 +29,7 @@ import org.springframework.transaction.support.TransactionTemplate;
 
 import java.time.Clock;
 import java.time.Instant;
+import java.time.LocalDate;
 import java.util.Locale;
 import java.util.Optional;
 
@@ -71,6 +73,12 @@ public class BookingService {
         Variant variant = variantRepository.findWithRoomTypeAndPropertyById(request.variantId())
                 .orElseThrow(() -> NotFoundException.of("variant", request.variantId()));
         Property property = variant.getRoomType().getProperty();
+        // @FutureOrPresent on the request checks against UTC; what counts is today at the property
+        LocalDate today = LocalDate.ofInstant(now, property.getTimeZone());
+        if (request.checkIn().isBefore(today)) {
+            throw new DomainValidationException("check-in date " + request.checkIn() + " is in the past for "
+                    + property.getName() + " (today is " + today + ")");
+        }
         BookingDraft draft = new BookingDraft(
                 findOrCreateCustomer(request.customer()),
                 property,

@@ -10,7 +10,5 @@ public interface CustomerRepository extends Repository<Customer, UUID> {
 
     Customer save(Customer customer);
 
-    Optional<Customer> findById(UUID id);
-
     Optional<Customer> findByEmail(String email);
 }

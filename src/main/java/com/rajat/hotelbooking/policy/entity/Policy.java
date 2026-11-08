@@ -72,8 +72,4 @@ public class Policy extends BaseEntity {
     public boolean isAvailableTo(UUID propertyOwnerId) {
         return isPlatformPolicy() || ownerId.equals(propertyOwnerId);
     }
-
-    public List<PolicyVersion> getVersions() {
-        return List.copyOf(versions);
-    }
 }

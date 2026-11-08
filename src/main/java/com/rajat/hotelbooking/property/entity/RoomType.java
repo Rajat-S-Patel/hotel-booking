@@ -79,13 +79,6 @@ public class RoomType extends VersionedEntity {
         return variant;
     }
 
-    public Variant standardVariant() {
-        return variants.stream()
-                .filter(Variant::isStandard)
-                .findFirst()
-                .orElseThrow(() -> new IllegalStateException("room type has no Standard variant: " + name));
-    }
-
     public int totalRooms() {
         return variants.stream().filter(Variant::isActive).mapToInt(Variant::getRoomCount).sum();
     }
@@ -95,18 +88,6 @@ public class RoomType extends VersionedEntity {
         PreConditions.require(feature.isRoomFeature(),
                 "property amenity cannot be a room feature: " + feature.getCode());
         baseFeatures.add(feature);
-    }
-
-    public void removeBaseFeature(Amenity feature) {
-        baseFeatures.remove(feature);
-    }
-
-    public void changeBasePrice(Money newBasePrice) {
-        PreConditions.requireNonNull(newBasePrice, "base price");
-        PreConditions.require(!newBasePrice.isZero(), "base price must be greater than zero");
-        PreConditions.require(newBasePrice.currency().equals(basePrice.currency()),
-                "base price currency cannot change: " + basePrice.currency());
-        this.basePrice = newBasePrice;
     }
 
     public Set<Amenity> getBaseFeatures() {

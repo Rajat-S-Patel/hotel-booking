@@ -31,10 +31,6 @@ public record Money(@Column(nullable = false, precision = 12, scale = 2) BigDeci
         return new Money(amount, currency);
     }
 
-    public static Money inr(String amount) {
-        return new Money(new BigDecimal(amount), INR);
-    }
-
     public static Money zero(Currency currency) {
         return new Money(BigDecimal.ZERO, currency);
     }

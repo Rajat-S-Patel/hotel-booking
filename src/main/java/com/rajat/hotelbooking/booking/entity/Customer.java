@@ -32,9 +32,4 @@ public class Customer extends BaseEntity {
         this.email = ContactDetails.normaliseEmail(email, "customer email");
         this.phone = ContactDetails.normalisePhone(phone, "customer phone");
     }
-
-    public void updateContact(String newName, String newPhone) {
-        this.name = PreConditions.requireText(newName, "customer name");
-        this.phone = ContactDetails.normalisePhone(newPhone, "customer phone");
-    }
 }
